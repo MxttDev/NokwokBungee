@@ -1,0 +1,8 @@
+name: Nokwok
+main: me.Mattq.NokwokBungee.Main
+version: 1.0
+author: Mattq
+
+commands:
+  server:
+    description: Teleports to another server
