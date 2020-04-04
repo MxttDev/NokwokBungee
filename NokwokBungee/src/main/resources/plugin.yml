@@ -6,3 +6,5 @@ author: Mattq
 commands:
   server:
     description: Teleports to another server
+  s:
+    description: sTAFFCHAT
