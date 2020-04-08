@@ -3,6 +3,7 @@ package me.Mattq.NokwokBungee;
 import com.google.common.io.ByteStreams;
 import me.Mattq.NokwokBungee.Events.join;
 import me.Mattq.NokwokBungee.commands.misc.config;
+import me.Mattq.NokwokBungee.commands.misc.hub;
 import me.Mattq.NokwokBungee.commands.server;
 import me.Mattq.NokwokBungee.commands.staffchat;
 import net.md_5.bungee.api.ProxyServer;
@@ -44,6 +45,7 @@ public class Main extends Plugin {
         getProxy().getPluginManager().registerCommand(this, new server()); // /SERVER (NAME)
         getProxy().getPluginManager().registerCommand(this, new staffchat()); // /S (MESSAGE)
         getProxy().getPluginManager().registerCommand(this, new config()); // /CONFIG (RELOAD)
+        getProxy().getPluginManager().registerCommand(this, new hub()); // /HUB
     }
 
 
@@ -68,7 +70,6 @@ public class Main extends Plugin {
         }
 
     }
-
 
     public static Main getInstance() {
         return instance;

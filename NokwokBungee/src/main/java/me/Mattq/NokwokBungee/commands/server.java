@@ -25,16 +25,35 @@ public class server extends Command {
 
         ProxiedPlayer p = (ProxiedPlayer) sender;
         if (args.length == 1) {
-            ServerInfo target = ProxyServer.getInstance().getServerInfo(args[0].toLowerCase());
-            if (!(target == null)) {
-                p.connect(target);
-                p.sendMessage(new TextComponent(ChatColor.GRAY + "Connecting you to: " + ChatColor.AQUA + target.getName()));
+            if (args[0].equalsIgnoreCase("Lobby1")) {
+                if (!(p.getServer().getInfo().getName().equalsIgnoreCase("NokLobby1"))) {
+                    p.connect(ProxyServer.getInstance().getServerInfo("NokLobby1"));
+                    p.sendMessage(new TextComponent(ChatColor.GRAY + "Connecting you to: " + ChatColor.AQUA + "Lobby 1"));
+                } else {
+                  p.sendMessage(new TextComponent(ChatColor.RED+"You are already connected to this server!"));
+                }
+            } else if (args[0].equalsIgnoreCase("Smp")) {
+                if (!(p.getServer().getInfo().getName().equalsIgnoreCase("NokSmp"))) {
+                    p.connect(ProxyServer.getInstance().getServerInfo("NokSmp"));
+                    p.sendMessage(new TextComponent(ChatColor.GRAY + "Connecting you to: " + ChatColor.AQUA + "SMP"));
+                } else {
+                    p.sendMessage(new TextComponent(ChatColor.RED+"You are already connected to this server!"));
+                }
+            } else if (args[0].equalsIgnoreCase("Lobby")) {
+                if (!(p.getServer().getInfo().getName().equalsIgnoreCase("NokLobby1"))) {
+                    p.connect(ProxyServer.getInstance().getServerInfo("NokLobby1"));
+                    p.sendMessage(new TextComponent(ChatColor.GRAY + "Connecting you to: " + ChatColor.AQUA + "Lobby 1"));
+                } else {
+                    p.sendMessage(new TextComponent(ChatColor.RED+"You are already connected to this server!"));
+                }
             } else {
+
                 p.sendMessage(new TextComponent(ChatColor.RED + "Server not found: "+args[0]));
             }
         } else {
-            p.sendMessage(new TextComponent(ChatColor.RED + "Correct Usage: /server (server)"));
+            p.sendMessage(new TextComponent(ChatColor.RED + "Incorrect usage: /server (server)"));
         }
+
 
     }
 }
