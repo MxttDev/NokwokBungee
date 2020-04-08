@@ -39,6 +39,17 @@ public class server extends Command {
                 } else {
                     p.sendMessage(new TextComponent(ChatColor.RED+"You are already connected to this server!"));
                 }
+            } else if (args[0].equalsIgnoreCase("Series")) {
+                if (p.hasPermission("Nokwok.series")) {
+                    if (!(p.getServer().getInfo().getName().equalsIgnoreCase("Series"))) {
+                        p.connect(ProxyServer.getInstance().getServerInfo("Series"));
+                        p.sendMessage(new TextComponent(ChatColor.GRAY + "Connecting you to: " + ChatColor.AQUA + "Series"));
+                    } else {
+                        p.sendMessage(new TextComponent(ChatColor.RED + "You are already connected to this server!"));
+                    }
+                } else {
+                    p.sendMessage(new TextComponent(ChatColor.RED+"Insufficient Permissions!"));
+                }
             } else if (args[0].equalsIgnoreCase("Lobby")) {
                 if (!(p.getServer().getInfo().getName().equalsIgnoreCase("NokLobby1"))) {
                     p.connect(ProxyServer.getInstance().getServerInfo("NokLobby1"));

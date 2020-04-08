@@ -26,26 +26,30 @@ public class staffchat extends Command {
         if (!(sender instanceof ProxiedPlayer)) {
             sender.sendMessage(new TextComponent(ChatColor.RED+"Player only command."));
         }
-
-
         ProxiedPlayer p = (ProxiedPlayer) sender;
-        if (args.length >= 1) {
-            StringBuilder str = new StringBuilder();
-            for (int i = 0; i < args.length; i++) {
-                str.append(args[i] + " ");
-            }
-            String msg = str.toString();
-            String format = this.plugin.configuration.getString("staffchat");
-
-
-            for (ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
-                if (player.hasPermission("Nokwok.staff")) {
-                    player.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', format.replace("<player>", p.getName()).replace("<message>", msg))));
+        if (p.hasPermission("Nokwok.staff")) {
+            if (args.length >= 1) {
+                StringBuilder str = new StringBuilder();
+                for (int i = 0; i < args.length; i++) {
+                    str.append(args[i] + " ");
                 }
-            }
+                String msg = str.toString();
+                String format = this.plugin.configuration.getString("staffchat");
 
+
+                for (ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
+                    if (player.hasPermission("Nokwok.staff")) {
+                        char char1;
+                        String serv = player.getServer().getInfo().getName();
+                        player.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', format.replace("<player>", p.getName()).replace("<message>", msg).replace("<server>", serv))));
+                    }
+                }
+
+            } else {
+                p.sendMessage(new TextComponent(ChatColor.RED + "Incorrect usage: /s (message)"));
+            }
         } else {
-            p.sendMessage(new TextComponent(ChatColor.RED+"Incorrect usage: /s (message)"));
+            p.sendMessage(new TextComponent(ChatColor.RED+"Insufficient Permissions!"));
         }
 
     }
