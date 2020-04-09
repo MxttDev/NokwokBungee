@@ -8,3 +8,10 @@ commands:
     description: Teleports to another server
   s:
     description: sTAFFCHAT
+  msg:
+    description: Message a player
+    aliases: [message]
+  discord:
+    description: Discord command
+  find:
+    description: Find a player

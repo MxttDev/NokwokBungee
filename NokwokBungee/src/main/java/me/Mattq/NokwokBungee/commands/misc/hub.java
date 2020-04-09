@@ -23,7 +23,7 @@ public class hub extends Command {
         }
 
         ProxiedPlayer p = (ProxiedPlayer) sender;
-        ServerInfo target = ProxyServer.getInstance().getServerInfo("NokLobby1");
+        ServerInfo target = ProxyServer.getInstance().getServerInfo("Lobby1");
         if (!(target == null)) {
             p.connect(target);
             p.sendMessage(new TextComponent(ChatColor.GRAY + "Connecting you to: " + ChatColor.AQUA + "Lobby 1"));

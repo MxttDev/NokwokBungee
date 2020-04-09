@@ -2,7 +2,10 @@ package me.Mattq.NokwokBungee;
 
 import com.google.common.io.ByteStreams;
 import me.Mattq.NokwokBungee.Events.join;
+import me.Mattq.NokwokBungee.commands.interaction.find;
+import me.Mattq.NokwokBungee.commands.interaction.msg;
 import me.Mattq.NokwokBungee.commands.misc.config;
+import me.Mattq.NokwokBungee.commands.misc.discord;
 import me.Mattq.NokwokBungee.commands.misc.hub;
 import me.Mattq.NokwokBungee.commands.server;
 import me.Mattq.NokwokBungee.commands.staffchat;
@@ -46,6 +49,9 @@ public class Main extends Plugin {
         getProxy().getPluginManager().registerCommand(this, new staffchat()); // /S (MESSAGE)
         getProxy().getPluginManager().registerCommand(this, new config()); // /CONFIG (RELOAD)
         getProxy().getPluginManager().registerCommand(this, new hub()); // /HUB
+        getProxy().getPluginManager().registerCommand(this, new discord()); // /DISCORD
+        getProxy().getPluginManager().registerCommand(this, new msg()); // /MSG/
+        getProxy().getPluginManager().registerCommand(this, new find());
     }
 
 

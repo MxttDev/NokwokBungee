@@ -40,7 +40,7 @@ public class staffchat extends Command {
                 for (ProxiedPlayer player : ProxyServer.getInstance().getPlayers()) {
                     if (player.hasPermission("Nokwok.staff")) {
                         char char1;
-                        String serv = player.getServer().getInfo().getName();
+                        String serv = p.getServer().getInfo().getName();
                         player.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', format.replace("<player>", p.getName()).replace("<message>", msg).replace("<server>", serv))));
                     }
                 }
